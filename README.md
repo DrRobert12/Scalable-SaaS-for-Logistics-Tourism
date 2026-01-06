@@ -10,11 +10,11 @@ Sistema modular (Application Factory) para manejo de cupones
 
 ---
 
-## 🏗️ Architectural Overview
+## Architectural Overview
 
 El sistema implementa el patrón **Application Factory** para garantizar el desacoplamiento y facilitar el testing. La migración de una arquitectura MPA (Multi-Page Application) a una **SPA (Single Page Application)** híbrida mediante Vue 3 permite una reactividad fluida en el frontend sin abandonar la robustez de Jinja2 para la inyección de datos iniciales.
 
-## 🔐 Security Stack & Implementation
+## Security Stack & Implementation
 
 Como desarrollador enfocado en **integridad financiera**, la seguridad es un pilar central del proyecto.
 
@@ -43,7 +43,7 @@ Como desarrollador enfocado en **integridad financiera**, la seguridad es un pil
 
 ---
 
-## 📊 Database & Performance Engineering
+## Database & Performance Engineering
 
 El diseño relacional prioriza **trazabilidad histórica** y **consistencia de datos**.
 
@@ -59,7 +59,7 @@ El diseño relacional prioriza **trazabilidad histórica** y **consistencia de d
 
 ---
 
-## 🚀 Key Technical Features
+## Key Technical Features
 
 - **Modular Blueprints**
   - Separación clara de dominios:
@@ -82,7 +82,7 @@ El diseño relacional prioriza **trazabilidad histórica** y **consistencia de d
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 - **Language:** Python 3.10+  
   - Type Hinting implementado
@@ -98,7 +98,7 @@ El diseño relacional prioriza **trazabilidad histórica** y **consistencia de d
   - Render
 
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 Agencias_App/
