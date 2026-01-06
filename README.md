@@ -23,3 +23,47 @@ graph TD
     C -->|SQLAlchemy/Psycopg2| E[(PostgreSQL)]
     E -->|Materialized Views| F[Analytics Engine]
     F -->|Data Points| G[ApexCharts Dashboard]
+    
+    
+    
+🔐 Security Stack & Implementation
+Como desarrollador enfocado en integridad financiera, la seguridad es el pilar del proyecto:
+
+Hashing de Grado Industrial: Implementación de Argon2id (vía argon2-cffi). Configurado con 64MB de memoria y 3 iteraciones para mitigar ataques de hardware (ASIC/GPU).
+
+Protection Layers:
+
+Flask-Talisman: Configuración estricta de Content Security Policy (CSP) y forzado de HSTS.
+
+Flask-Limiter: Rate-limiting basado en IP para endpoints críticos (Auth/API).
+
+CSRF Integrity: Validación de tokens en todas las transacciones asíncronas desde Vue 3.
+
+RBAC (Role-Based Access Control): Decoradores personalizados que gestionan accesos jerárquicos (Admin, Contador, Empleado).
+
+📊 Database & Performance Engineering
+El diseño relacional se enfoca en la trazabilidad histórica:
+
+Snapshots de Datos: Para evitar inconsistencias si un empleado cambia su información, el sistema guarda un telefono_vendedor_snapshot en cada cupón generado.
+
+Vistas Materializadas: Implementación de vista_resumen_semanal en PostgreSQL para optimizar reportes financieros pesados, reduciendo la carga computacional del servidor de aplicaciones.
+
+🚀 Key Technical Features
+Modular Blueprints: Separación de dominios (Auth, Admin, Cupones, Servicios).
+
+Vue 3 Composition API: Gestión de estado reactivo en el Dashboard de Check-in (Bootstrap-free).
+
+PDF Engine: Generación dinámica de comprobantes mediante ReportLab, optimizando el manejo de fuentes y buffer de memoria.
+
+Env Ofuscation: Soporte para URLs de acceso personalizables vía .env para mitigar ataques de descubrimiento de rutas automáticos.
+
+🛠️ Stack Tecnológico
+Language: Python 3.10+ (Type Hinting implementado)
+
+Web Framework: Flask 3.1.1
+
+Database: PostgreSQL + Psycopg2
+
+Frontend: Vue 3, Vanilla CSS (Custom Design System), ApexCharts
+
+Infrastructure: Gunicorn, Docker (ready), Render        
