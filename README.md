@@ -98,13 +98,40 @@ El diseño relacional prioriza **trazabilidad histórica** y **consistencia de d
   - Render
 
 
-  ### Data Flow Diagram
-```mermaid
-graph TD
-    A[Vue 3 SPA] -->|JSON Requests| B[Flask Application Factory]
-    B -->|RBAC Decorators| C{Security Layer}
-    C -->|Argon2id| D[Auth Service]
-    C -->|SQLAlchemy/Psycopg2| E[(PostgreSQL)]
-    E -->|Materialized Views| F[Analytics Engine]
-    F -->|Data Points| G[ApexCharts Dashboard]
+## 📂 Estructura del Proyecto
+
+```
+Agencias_App/
+├── app/                      # Paquete principal de la aplicación
+│   ├── __init__.py          # Application Factory
+│   ├── config.py            # Configuraciones (Development/Production)
+│   ├── extensions.py        # Extensiones Flask
+│   ├── utils/               # Módulos de utilidades
+│   │   ├── auth.py         # Autenticación y hashing
+│   │   ├── db.py           # Conexión a base de datos
+│   │   ├── decorators.py   # Decoradores RBAC
+│   │   ├── helpers.py      # Funciones auxiliares
+│   │   └── pdf_generator.py # Generación de PDFs
+│   └── routes/              # Blueprints por dominio
+│       ├── auth.py         # Autenticación
+│       ├── public.py       # Rutas públicas
+│       ├── admin.py        # Panel de administración (SPA Backend)
+│       ├── usuarios.py     # Gestión de usuarios
+│       ├── agencias.py     # Gestión de agencias
+│       ├── servicios.py    # Gestión de servicios
+│       ├── cupones.py      # Gestión de cupones
+│       └── reportes.py     # Reportes y métricas
+├── templates/               # Templates Jinja2 (SPA mounting points)
+├── static/                  # Archivos estáticos (CSS, JS, imágenes)
+│   ├── js/
+│   │   ├── AdminApp.js     # Admin SPA Core
+│   │   ├── CheckinApp.js   # Check-in SPA Core
+│   │   └── components/     # Vue Components (Admin & Public)
+├── fonts/                   # Fuentes para PDFs (ReportLab)
+├── run.py                   # Entry point desarrollo
+├── wsgi.py                  # Entry point producción
+├── requirements.txt         # Dependencias Python
+├── .env                     # Variables de entorno
+└── README.md               # Este archivo
+```
 
